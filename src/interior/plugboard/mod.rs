@@ -5,11 +5,11 @@ mod sockets;
 pub use plugs::Plugs;
 
 use self::builder::PlugboardBuilder;
-use crate::alphabetic::Alphabetic;
+use crate::alphabet::Alphabet;
 
 #[derive(Debug, Eq, PartialEq)]
 pub struct Plugboard {
-    wiring: [<char as Alphabetic>::Alphabet; <char as Alphabetic>::N_ALPHABET],
+    wiring: [Alphabet; Alphabet::N_ALPHABET],
 }
 
 impl Plugboard {
@@ -17,7 +17,7 @@ impl Plugboard {
         PlugboardBuilder::new()
     }
 
-    pub(crate) fn swap<T: Alphabetic>(this: &Self, input: T) -> char {
+    pub(crate) fn swap(this: &Self, input: Alphabet) -> Alphabet {
         this.wiring[input.index()]
     }
 }
