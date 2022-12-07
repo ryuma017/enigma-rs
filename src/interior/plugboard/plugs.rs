@@ -8,7 +8,7 @@ use super::sockets::Socket;
 pub struct Plugs<const N: usize = 0>([Plug; Plugs::MAX_PLUGS]);
 
 impl Plugs {
-    const MAX_PLUGS: usize = 13;
+    const MAX_PLUGS: usize = 10;
 
     pub fn new() -> Self {
         Self([Plug::default(); Plugs::MAX_PLUGS])
@@ -45,14 +45,6 @@ pub trait Satisfied {}
 pub struct Condition<const PRED: bool>;
 
 impl Satisfied for Condition<true> {}
-
-trait PlugAble {
-    const N_PLUGS: usize;
-}
-
-impl<const N: usize> PlugAble for Plugs<N> {
-    const N_PLUGS: usize = N;
-}
 
 impl<const N: usize> Plugs<N>
 where

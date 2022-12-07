@@ -50,9 +50,7 @@ mod tests {
                 .plug(sockets.O, sockets.P)
                 .plug(sockets.Q, sockets.R)
                 .plug(sockets.S, sockets.T)
-                .plug(sockets.U, sockets.V)
-                .plug(sockets.W, sockets.X)
-                .plug(sockets.Y, sockets.Z)
+            // .plug(sockets.U, sockets.V) // compile error
         });
 
         for (input, output) in zip(
