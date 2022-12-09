@@ -17,8 +17,8 @@ impl Plugboard {
         PlugboardBuilder::new()
     }
 
-    pub(crate) fn swap(this: &Self, input: Alphabet) -> Alphabet {
-        this.wiring[input.index()]
+    pub(crate) fn swap(&self, input: Alphabet) -> Alphabet {
+        self.wiring[input.index()]
     }
 }
 
@@ -57,7 +57,7 @@ mod tests {
             Plugboard::default().wiring.into_iter(),
             plugboard.wiring.into_iter(),
         ) {
-            assert_eq!(Plugboard::swap(&plugboard, input), output);
+            assert_eq!(plugboard.swap(input), output);
         }
     }
 }
